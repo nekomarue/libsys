@@ -20,8 +20,8 @@ A web-based Library Management System built using Laravel for managing categorie
 
 ## Installation Instructions
 
-1. Clone the repository: `git clone <your-repo-url>`
-2. Navigate to the project directory: `cd your-project-folder`
+1. Clone the repository: `git clone <https://github.com/nekomarue/libsys>`
+2. Navigate to the project directory: `cd C:/Users/hp/Libsys`
 3. Install dependencies: `composer install`
 4. Copy the example environment file: `cp .env.example .env`
 5. Generate app key: `php artisan key:generate`
