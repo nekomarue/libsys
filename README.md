@@ -43,7 +43,27 @@ A web-based Library Management System built using Laravel for managing categorie
         $books = Book::orderBy('id', 'desc')->paginate(10);
         return view('books.index', compact('books'));
     }'''
-    
+
+
+### Book Model Code
+    '''<?php
+
+    namespace App\Models;
+
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
+
+    class Book extends Model
+    {
+        use HasFactory;
+
+        protected $fillable = ['title', 'author', 'isbn', 'qty'];
+
+        public function transactions()
+        {
+            return $this->hasMany(Transaction::class);
+        }
+    }'''
 ## Contributors
 
 Baldoz, Kathlyn R.
