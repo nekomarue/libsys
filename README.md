@@ -35,7 +35,8 @@ A web-based Library Management System built using Laravel for managing categorie
 3. Access the web app via 'http://127.0.0.1:8000'.
 5. Navigate through dashboard to manage categories, authors, books, and book copies.
 
-## Example (Book Controller Code)
+## Code Snippet
+### Book Controller Code
 
     '''public function index()
     {
