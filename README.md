@@ -38,10 +38,80 @@ A web-based Library Management System built using Laravel for managing categorie
 ## Code Snippet
 ### Book Controller Code
 
-    '''public function index()
+    '''<?php
+
+    namespace App\Http\Controllers;
+    
+    use Illuminate\Http\Request;
+    use App\Models\Book;
+    
+    class BookController extends Controller
     {
-        $books = Book::orderBy('id', 'desc')->paginate(10);
-        return view('books.index', compact('books'));
+        // Display all books
+        public function index()
+        {
+            $books = Book::orderBy('id', 'desc')->paginate(10);
+            return view('books.index', compact('books'));
+        }
+
+        public function create()
+        {
+            return view('books.create');
+        }
+    
+        // Save a new book
+        public function store(Request $request)
+        {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'author' => 'nullable|string|max:255',
+                'isbn' => 'nullable|string|unique:books,isbn|max:20',
+                'qty' => 'required|integer|min:1',
+            ]);
+    
+            Book::create($request->only('title', 'author', 'isbn', 'qty'));
+    
+            return redirect()->route('books.index')->with('success', 'Book added successfully.');
+        }
+    
+        public function show($id)
+        {
+            $book = Book::findOrFail($id);
+            return view('books.show', compact('book'));
+        }
+    
+        //Edit a book
+        public function edit($id)
+        {
+            $book = Book::findOrFail($id);
+            return view('books.edit', compact('book'));
+        }
+    
+        // Update a book
+        public function update(Request $request, $id)
+        {
+            $book = Book::findOrFail($id);
+    
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'author' => 'nullable|string|max:255',
+                'isbn' => 'nullable|string|unique:books,isbn,'.$book->id.'|max:20',
+                'qty' => 'required|integer|min:1',
+            ]);
+    
+            $book->update($request->only('title', 'author', 'isbn', 'qty'));
+    
+            return redirect()->route('books.index')->with('success', 'Book updated successfully.');
+        }
+    
+        // Delete a book
+        public function destroy($id)
+        {
+            $book = Book::findOrFail($id);
+            $book->delete();
+    
+            return redirect()->route('books.index')->with('success', 'Book deleted successfully.');
+        }
     }'''
 
 
