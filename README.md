@@ -36,7 +36,7 @@ A web-based Library Management System built using Laravel for managing categorie
 5. Navigate through dashboard to manage categories, authors, books, and book copies.
 
 ## Code Snippet
-### Book Controller Code
+### Book Controller
 
     '''<?php
 
@@ -115,7 +115,7 @@ A web-based Library Management System built using Laravel for managing categorie
     }'''
 
 
-### Book Model Code
+### Book Model
     '''<?php
 
     namespace App\Models;
