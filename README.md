@@ -31,9 +31,11 @@ A web-based Library Management System built using Laravel for managing categorie
 
 ## Usage
 
-1. Open your terminal and run '''php artisan serve'''.
-2. Access the web app via '''http://127.0.0.1:8000'''.
-3. Navigate through dashboard to manage categories, authors, books, and book copies.
+1. Open your terminal and run
+    '''php artisan serve'''.
+3. Access the web app via
+    '''http://127.0.0.1:8000'''.
+5. Navigate through dashboard to manage categories, authors, books, and book copies.
 
 ## Example (Book Controller Code)
 
