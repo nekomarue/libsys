@@ -41,4 +41,5 @@ Baldoz, Kathlyn R.
 
 ## License
 
-For academic purposes only.
+This project is licensed under the MIT License.
+You are free to use, modify, and distribute this project for educational purposes.
